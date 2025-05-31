@@ -1,20 +1,41 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>SkeletonAPP</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <h1 style="text-align:center">Bienvenido!</h1>
+  <p style="text-align:center">Usuario: {{ usuario }}</p>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <h2>Información Adicional</h2>
+
+  <ion-item>
+    <ion-input [(ngModel)]="nombre" label="Nombre" label-placement="floating" placeholder="Ingrese Nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]="apellido" label="Apellido" label-placement="floating" placeholder="Ingrese Apellido"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-select [(ngModel)]="educacion" label="Nivel Educación" placeholder="Seleccione Nivel">
+      <ion-select-option value="Básica">Básica</ion-select-option>
+      <ion-select-option value="Media">Media</ion-select-option>
+      <ion-select-option value="Superior">Superior</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]="nacimiento" type="date" label="Fecha Nacimiento" label-placement="floating"></ion-input>
+  </ion-item>
+
+  <div style="display: flex; justify-content: space-between; margin-top: 20px">
+    <ion-button (click)="limpiar()" expand="block" color="medium">Limpiar</ion-button>
+    <ion-button (click)="mostrar()" expand="block" color="primary">Mostrar</ion-button>
+  </div>
+
+  <div style="margin-top: 30px; text-align:center; color: gray">
+    <small>App desarrollada por</small>
   </div>
 </ion-content>
