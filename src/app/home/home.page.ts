@@ -2,16 +2,17 @@ import { Component } from '@angular/core';
 import {
   IonContent, IonHeader, IonItem, IonInput, IonButton, IonToolbar, IonTitle, IonSelectOption
 } from '@ionic/angular/standalone'
-import { MatDatepickerModule } from '@angular/material/datepicker'
-import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatNativeDateModule } from '@angular/material/core'
-import { MatInputModule } from '@angular/material/input'
 import { MatSliderModule } from '@angular/material/slider'
 import { AlertController } from '@ionic/angular'
 import { CommonModule } from '@angular/common'
 import {  LOCALE_ID } from '@angular/core'
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatNativeDateModule } from '@angular/material/core'
+import { MatInputModule } from '@angular/material/input'
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -33,6 +34,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     CommonModule
   ],
+
     providers: [
     {provide: LOCALE_ID, useValue: 'es' }
   ]
@@ -70,11 +72,9 @@ limpiar() {
   async mostrar() {
     const alert = await this.alertCtrl.create({
       header: 'Datos ingresados',
-      message: `Nombre: ${this.nombre}, Apellido: ${this.apellido}`,
+      message: `Su nombre es ${this.nombre} ${this.apellido}`,
       buttons: ['OK']
     })
     await alert.present()
   }
-
-
 }
