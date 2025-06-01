@@ -10,11 +10,11 @@
 
   <h2>Información Adicional</h2>
 
-  <ion-item>
+  <ion-item id="campo-nombre">
     <ion-input [(ngModel)]="nombre" label="Nombre" label-placement="floating" placeholder="Ingrese Nombre"></ion-input>
   </ion-item>
 
-  <ion-item>
+  <ion-item id="campo-apellido">
     <ion-input [(ngModel)]="apellido" label="Apellido" label-placement="floating" placeholder="Ingrese Apellido"></ion-input>
   </ion-item>
 
@@ -26,9 +26,12 @@
     </ion-select>
   </ion-item>
 
-  <ion-item>
-    <ion-input [(ngModel)]="nacimiento" type="date" label="Fecha Nacimiento" label-placement="floating"></ion-input>
-  </ion-item>
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>Fecha Nacimiento</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="nacimiento" name="nacimiento">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
 
   <div style="display: flex; justify-content: space-between; margin-top: 20px">
     <ion-button (click)="limpiar()" expand="block" color="medium">Limpiar</ion-button>
